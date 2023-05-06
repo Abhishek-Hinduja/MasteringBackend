@@ -1,0 +1,19 @@
+{
+  "name": "mastering_backend",
+  "version": "1.0.0",
+  "description": "\"Here is a brief of master in backend\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abhishek12589/MasteringBackend.git"
+  },
+  "author": "\"Abhishek\"",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abhishek12589/MasteringBackend/issues"
+  },
+  "homepage": "https://github.com/Abhishek12589/MasteringBackend#readme"
+}
