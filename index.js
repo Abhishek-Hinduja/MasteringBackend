@@ -1,5 +1,10 @@
 import http from "http";
 import { lovecalculator } from "./feature.js";
+import fs from "fs";
+
+const home = fs.readFileSync("./index.html", ()=>{
+    console.log("hello")
+})
 
 
 const server = http.createServer((req,res) => {
@@ -7,7 +12,9 @@ const server = http.createServer((req,res) => {
         res.end(`<h1>love percentage is ${lovecalculator()}</h1>`)
     }
     else if ((req.url) === "/about"){
-        res.end("Welcome to the About page")
+        fs.readFileSync("./index.html", (err,data)=>{
+            res.end(data)
+        })
     }
     else if ((req.url) === "/contact"){
         res.end("Welcome to the contact page")
