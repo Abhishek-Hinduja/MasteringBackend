@@ -1,10 +1,21 @@
-import { Console } from "console";
 import express, { urlencoded } from "express";
-import fs from "fs";
 import path from "path";
+import mongoose from "mongoose";
+
+mongoose.connect("mongodb://127.0.0.1:27017",{
+    dbName: "backend",
+}).then(()=>{
+    console.log("Database is Connected")
+})
+
+const messageSchema = new mongoose.Schema({
+    name: String,
+    email: String
+})
+
+const Message = mongoose.model("Message", messageSchema)
 
 const app = express()
-const arr = []
 
 app.set("view engine", "ejs")
 
@@ -15,18 +26,10 @@ app.get("/", (req,res)=>{
     res.render("index")
 });
 
-app.get("/json", (req,res)=>{
-    res.json({
-        arr
-    })
-})
 
-app.post("/", (req,res)=>{
-    arr.push({
-        name : req.body.name,
-        email : req.body.email
-    })
-    res.render("success", {arr})
+app.post("/", async(req,res)=>{
+    await Message.create({name:req.body.name, email:req.body.email})
+    res.render("success")
 })
 
 app.listen(4000, ()=>{
