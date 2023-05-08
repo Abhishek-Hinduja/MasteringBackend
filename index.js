@@ -1,12 +1,21 @@
 import express from "express";
+import fs from "fs";
+import path from "path";
 
+const app = express()
 
-const server = express()
+app.set("view engine", "ejs")
 
-server.get("/", (req,res)=>{
-    res.end("Hello you are Welcome In this so much solf loving self conscious word of Abhishek")
+app.use(express.static(path.join(path.resolve(), "public")))
+
+app.get("/", (req,res)=>{
+    const data = {
+        name : "Abhishek",
+        department : "CSE"
+    }
+    res.render("index", data)
 });
 
-server.listen(4000, ()=>{
+app.listen(4000, ()=>{
     console.log("Server is listening")
 })
