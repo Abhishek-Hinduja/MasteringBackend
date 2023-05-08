@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <h1>Hello World</h1>
-    <h2>How are You</h2>
-    <h3>I am fine <%= locals.department %></h3>
-    <h4>Tell me something funny <%=locals.name%></h4>
-    <h5>Everything in life is fucked up like you</h5>
-    <script src="script.js"></script>
+    <main>
+        <form method="post">
+            <h1>Contact now</h1>
+            <input type="text" name="name" placeholder="name">
+            <input type="email" name="email" placeholder="email">
+            <button type="submit">Submit</button>
+        </form>
+    </main>
 </body>
 </html>
